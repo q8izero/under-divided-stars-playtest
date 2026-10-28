@@ -7,23 +7,24 @@
   const ENTRY = { guest: 'entry.921914550', part: 'entry.1189664838', version: 'entry.1097007671', device: 'entry.957297755' };
   const LOG_PATH = '%USERPROFILE%\\AppData\\LocalLow\\UnderDividedStarsVisualLab\\Under Divided Stars - Visual Showcase';
 
-  // An answer's mark: a game icon ("i:name", from assets/icons) or an emoji. Astra's faces and icons replace these later.
-  const LEVEL = [['Too easy', '😴'], ['A bit easy', '🙂'], ['Just right', '🎯'], ['A bit hard', '😬'], ['Too hard', '😵']];
-  const YES5 = [['Definitely', '💯'], ['Probably', '👍'], ['Not sure', '🤔'], ['Probably not', '👎'], ['No', '✋']];
+  // An answer's mark: a Little Star face by Astra ("f:love"), one of Astra's icons ("a:bug") or one of the game's own icons
+  // ("i:destiny"). A face says how good the answer feels for the game: "Just right" is the happiest.
+  const LEVEL = [['Too easy', 'f:meh'], ['A bit easy', 'f:okay'], ['Just right', 'f:love'], ['A bit hard', 'f:okay'], ['Too hard', 'f:frustrated']];
+  const YES5 = [['Definitely', 'f:love'], ['Probably', 'f:happy'], ['Not sure', 'f:thinking'], ['Probably not', 'f:meh'], ['No', 'f:frustrated']];
   const PARTS = [
     {
       id: 'chapter-one', name: 'After Chapter One', n: '1', img: 'assets/part1_chapter_one.jpg',
       hint: 'When Chapter One is done and you are back in Twinmarch.',
       questions: [
         { e: 'entry.722430704', q: 'How clear were the rules?', kind: 'one', scale: true,
-          opts: [['Clear', '😍'], ['Mostly clear', '🙂'], ['Some parts confusing', '😕'], ['Very confusing', '😵']] },
+          opts: [['Clear', 'f:love'], ['Mostly clear', 'f:happy'], ['Some parts confusing', 'f:meh'], ['Very confusing', 'f:frustrated']] },
         { e: 'entry.1710214531', q: 'What was hardest to understand?', kind: 'many', max: 2, other: true,
           opts: [['Cards and the Destiny Book', 'i:destiny'], ['What each figure can do', 'i:companions'], ['Statuses (Focus, Block, Mark…)', 'i:focus'],
-            ['What enemies will do next', 'i:damage'], ['Ending a turn (CONFIRM, END)', 'i:confirm'], ['Twinmarch and the missions', 'i:expedition'],
-            ['Nothing, all clear', '✨', 'only']] },
+            ['What enemies will do next', 'a:enemy_intent'], ['Ending a turn (CONFIRM, END)', 'i:confirm'], ['Twinmarch and the missions', 'i:expedition'],
+            ['Nothing, all clear', 'f:cheer', 'only']] },
         { e: 'entry.1645599136', q: 'The first battles were…', kind: 'one', scale: true, opts: LEVEL },
         { e: 'entry.1144193564', q: 'How much do you want to keep playing?', kind: 'one', scale: true,
-          opts: [['Can’t wait', '🤩'], ['I’m curious', '🙂'], ['Not sure', '🤔'], ['Not really', '😕']] }
+          opts: [['Can’t wait', 'f:love'], ['I’m curious', 'f:happy'], ['Not sure', 'f:thinking'], ['Not really', 'f:meh']] }
       ],
       write: { e: 'entry.126573994', ph: 'What confused or annoyed you? What did you enjoy?' }
     },
@@ -32,15 +33,15 @@
       hint: 'When Chapter Four is done: the middle of the game.',
       questions: [
         { e: 'entry.1687586451', q: 'How do the battles feel now?', kind: 'one', scale: true,
-          opts: [['Exciting', '🤩'], ['Fun', '😄'], ['OK', '😐'], ['Repetitive', '🥱'], ['Frustrating', '😤']] },
+          opts: [['Exciting', 'f:love'], ['Fun', 'f:happy'], ['OK', 'f:okay'], ['Repetitive', 'f:meh'], ['Frustrating', 'f:frustrated']] },
         { e: 'entry.450711056', q: 'What would make battles better?', kind: 'many', max: 2, other: true,
-          opts: [['More kinds of enemies', '🐉'], ['Clearer enemy actions', 'i:help'], ['Faster turns and animations', '⏩'],
-            ['Stronger hit feedback (effects, sound)', 'i:damage'], ['Better balance between figures', 'i:companions'],
-            ['More tactical choices', 'i:destiny'], ['They’re great as they are', '✨', 'only']] },
+          opts: [['More kinds of enemies', 'a:variety'], ['Clearer enemy actions', 'a:enemy_intent'], ['Faster turns and animations', 'a:pacing'],
+            ['Stronger hit feedback (effects, sound)', 'i:damage'], ['Better balance between figures', 'a:balance'],
+            ['More tactical choices', 'i:destiny'], ['They’re great as they are', 'f:cheer', 'only']] },
         { e: 'entry.122163148', q: 'Story and battles, the mix is…', kind: 'one', scale: true,
-          opts: [['Too much story', '📜'], ['A bit too much story', 'i:story'], ['Just right', '⚖️'], ['A bit too many battles', '⚔️'], ['Too many battles', '😵']] },
+          opts: [['Too much story', 'f:meh'], ['A bit too much story', 'f:okay'], ['Just right', 'f:love'], ['A bit too many battles', 'f:okay'], ['Too many battles', 'f:meh']] },
         { e: 'entry.266668959', q: 'Are upgrades and equipment worth it?', kind: 'one', scale: true,
-          opts: [['Very', '💎'], ['Somewhat', '👍'], ['Not really', '👎'], ['Haven’t used them', '🤷']] }
+          opts: [['Very', 'f:love'], ['Somewhat', 'f:happy'], ['Not really', 'f:meh'], ['Haven’t used them', 'f:thinking']] }
       ],
       write: { e: 'entry.1425799424', ph: 'Your favourite and least favourite thing so far: a figure, a fight, a place…' }
     },
@@ -50,16 +51,17 @@
       questions: [
         { e: 'entry.1786683304', q: 'The final chapters were…', kind: 'one', scale: true, opts: LEVEL },
         { e: 'entry.887287152', q: 'How did the story land?', kind: 'one', scale: true,
-          opts: [['Loved it', '😍'], ['Liked it', '🙂'], ['It was OK', '😐'], ['Didn’t care', '😶'], ['Lost track of it', '🤔']] },
+          opts: [['Loved it', 'f:love'], ['Liked it', 'f:happy'], ['It was OK', 'f:okay'], ['Didn’t care', 'f:meh'], ['Lost track of it', 'f:thinking']] },
         { e: 'entry.181385273', q: 'The painted story scenes, voices and music', kind: 'one', scale: true,
-          opts: [['Amazing', '🤩'], ['Good', '🙂'], ['OK', '😐'], ['Distracting', '😖'], ['I skipped them', '⏭️']] },
+          opts: [['Amazing', 'f:love'], ['Good', 'f:happy'], ['OK', 'f:okay'], ['Distracting', 'f:frustrated'], ['I skipped them', 'a:cutscenes']] },
         { e: 'entry.2089630847', q: 'What most needs work before release?', kind: 'many', max: 3, other: true,
-          opts: [['Rules and help', 'i:help'], ['Text size and readability', '🔍'], ['Controls', '🎮'], ['Battle balance', '⚖️'], ['Pacing', '⏳'],
-            ['Rewards and upgrades', 'i:gold'], ['Story', 'i:story'], ['Story scenes', '🎬'], ['Voices, sound and music', '🎵'],
-            ['Visuals and effects', '✨'], ['Loading and smoothness', '⏱️'], ['Bugs', '🐞'], ['Nothing major', '✅', 'only']] },
+          opts: [['Rules and help', 'i:help'], ['Text size and readability', 'a:readability'], ['Controls', 'a:controls'], ['Battle balance', 'a:balance'],
+            ['Pacing', 'a:pacing'], ['Rewards and upgrades', 'a:rewards'], ['Story', 'i:story'], ['Story scenes', 'a:cutscenes'],
+            ['Voices, sound and music', 'a:audio'], ['Visuals and effects', 'a:visuals'], ['Loading and smoothness', 'a:performance'], ['Bugs', 'a:bug'],
+            ['Nothing major', 'f:cheer', 'only']] },
         { e: 'entry.2026173065', q: 'Would you recommend it to a friend?', kind: 'one', scale: true, opts: YES5 },
         { e: 'entry.352380683', q: 'On Steam, what price feels fair?', kind: 'one', scale: true,
-          opts: [['Free', '🎁'], ['Under $5', '🪙'], ['$5–10', 'i:gold'], ['$10–20', '💰'], ['Over $20', '👑']] }
+          opts: [['Free', 'i:gold'], ['Under $5', 'i:gold'], ['$5–10', 'i:gold'], ['$10–20', 'i:gold'], ['Over $20', 'i:gold']] }
       ],
       write: { e: 'entry.395298710', ph: 'Your favourite moment, and the one thing you would change before release.' }
     },
@@ -68,19 +70,19 @@
       hint: 'After 2 or 3 runs. The Roguelike opens after Chapter One, from the main menu.',
       questions: [
         { e: 'entry.286356986', q: 'Did the runs feel different?', kind: 'one', scale: true,
-          opts: [['Very different', '🎲'], ['Somewhat', '🔀'], ['Mostly the same', '🔁'], ['Almost identical', '😐'], ['Not enough runs yet', '⏳']] },
-        { e: 'entry.225541005', q: 'A run’s length feels…', kind: 'one', scale: true, opts: [['Too short', '⚡'], ['Just right', '🎯'], ['Too long', '🐢']] },
+          opts: [['Very different', 'f:love'], ['Somewhat', 'f:happy'], ['Mostly the same', 'f:okay'], ['Almost identical', 'f:meh'], ['Not enough runs yet', 'f:thinking']] },
+        { e: 'entry.225541005', q: 'A run’s length feels…', kind: 'one', scale: true, opts: [['Too short', 'f:meh'], ['Just right', 'f:love'], ['Too long', 'f:meh']] },
         { e: 'entry.1687300039', q: 'Would you play another run?', kind: 'one', scale: true, opts: YES5 }
       ],
       write: { e: 'entry.1147601722', ph: 'What would make you play more runs?' }
     },
     {
-      id: 'problem', name: 'Report a problem', n: '!', img: '', problem: true,
+      id: 'problem', name: 'Report a problem', n: '!', img: 'assets/part5_report_desk.jpg', problem: true,
       hint: 'Any time something goes wrong. No need to finish anything first.',
       questions: [
         { e: 'entry.1959142762', q: 'What happened?', kind: 'one', other: true,
-          opts: [['Crash or freeze', '💥'], ['Something wrong (a bug)', '🐞'], ['Stuck, can’t continue', '🔒'], ['Visual glitch', '🖼️'],
-            ['Sound problem', '🔇'], ['Slow or stuttering', '🐌'], ['Typo or wrong text', '✏️']] }
+          opts: [['Crash or freeze', 'a:crash'], ['Something wrong (a bug)', 'a:bug'], ['Stuck, can’t continue', 'a:stuck'], ['Visual glitch', 'a:visuals'],
+            ['Sound problem', 'a:audio'], ['Slow or stuttering', 'a:performance'], ['Typo or wrong text', 'a:readability']] }
       ],
       write: { e: 'entry.1997169768', label: 'Where were you, and what did you just do?', ph: 'For example: Chapter Two, the second fight, I pressed END and the game stopped.' },
       line: { e: 'entry.851099703', label: 'Your PC (optional)', ph: 'Graphics card or laptop model, if you know it' }
@@ -94,7 +96,10 @@
     del(k) { try { localStorage.removeItem('uds-pt-' + k); } catch (e) { /* nothing to do */ } }
   };
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const mark = m => m.startsWith('i:') ? '<img src="assets/icons/' + m.slice(2) + '.png" alt="" width="40" height="40">' : '<span aria-hidden="true">' + m + '</span>';
+  const mark = m => {
+    const src = m.startsWith('f:') ? 'assets/emotes/emote_' + m.slice(2) : m.startsWith('a:') ? 'assets/icons/icon_' + m.slice(2) : m.startsWith('i:') ? 'assets/icons/' + m.slice(2) : '';
+    return src ? '<img src="' + src + '.png" alt="" width="40" height="40" loading="lazy">' : '<span aria-hidden="true">' + m + '</span>';
+  };
   const device = () => (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && matchMedia('(pointer: coarse)').matches)) ? 'phone' : 'computer';
 
   // Guest number
@@ -111,9 +116,7 @@
   function renderHome() {
     const done = sent();
     $('#parts').innerHTML = PARTS.map(p => {
-      const pic = p.problem
-        ? '<div class="pic parchment"><img src="assets/icons/help.png" alt="" width="128" height="128"></div>'
-        : '<div class="pic" style="background-image:url(\'' + p.img + '\')"><span class="num">' + p.n + '</span>' + (done[p.id] ? '<span class="sent">Sent ✓</span>' : '') + '</div>';
+      const pic = '<div class="pic" style="background-image:url(\'' + p.img + '\')"><span class="num">' + p.n + '</span>' + (done[p.id] ? '<span class="sent">Sent ✓</span>' : '') + '</div>';
       const time = p.problem ? 'Any time' : 'About 1 minute · ' + p.questions.length + ' taps';
       return '<a class="part-card' + (p.problem ? ' problem' : '') + '" href="#' + p.id + '">' + pic +
         '<div class="txt"><h3>' + esc(p.name) + '</h3><p>' + esc(p.hint) + '</p><span class="time">' + time + '</span></div></a>';
@@ -128,9 +131,7 @@
     current = p;
     answers = store.get(draftKey(p), {});
     const view = $('#part');
-    const banner = p.problem
-      ? '<div class="banner parchment"><img src="assets/icons/help.png" alt="" width="128" height="128">'
-      : '<div class="banner" style="background-image:url(\'' + p.img + '\')">';
+    const banner = '<div class="banner" style="background-image:url(\'' + p.img + '\')">';
     let html = '<a class="back" href="#">← All parts</a>' + banner + '<div class="b-txt"><h2>' + esc(p.name) + '</h2><p>' + esc(p.hint) + '</p></div></div>';
     p.questions.forEach((q, i) => {
       const id = 'q' + i;
@@ -142,7 +143,7 @@
         '<div class="opts' + (q.scale ? ' scale' : '') + '">' +
         q.opts.map(([v, m, only]) => '<button type="button" class="opt" data-q="' + i + '" data-v="' + esc(v) + '"' + (only ? ' data-only="1"' : '') + ' aria-pressed="false">' +
           '<span class="mk">' + mark(m) + '</span><span class="lb">' + esc(v) + '</span><span class="tick" aria-hidden="true"></span></button>').join('') +
-        (q.other ? '<button type="button" class="opt" data-q="' + i + '" data-v="__other__" aria-pressed="false"><span class="mk"><span aria-hidden="true">✍️</span></span><span class="lb">Something else…</span><span class="tick" aria-hidden="true"></span></button>' : '') +
+        (q.other ? '<button type="button" class="opt" data-q="' + i + '" data-v="__other__" aria-pressed="false"><span class="mk">' + mark('f:thinking') + '</span><span class="lb">Something else…</span><span class="tick" aria-hidden="true"></span></button>' : '') +
         '</div>' +
         (q.other ? '<input class="other-box" type="text" maxlength="300" data-other="' + i + '" placeholder="Write it here" hidden>' : '') +
         '</div>';
