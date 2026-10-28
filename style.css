@@ -41,7 +41,7 @@ a { color: var(--gold-bright); }
 /* Astra kept the top third of the hero as calm sky for the logo, and every face in the central half. */
 .hero-art { display: block; width: 100%; height: min(118vw, 560px); object-fit: cover; object-position: center 40%; }
 .hero-pic::after { content: ""; position: absolute; inset: auto 0 0; height: 34%; background: linear-gradient(180deg, transparent, var(--night)); pointer-events: none; }
-.logo { position: absolute; z-index: 1; left: 50%; top: 3%; transform: translateX(-50%); height: 28%; width: auto; filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.65)); }
+.logo { position: absolute; z-index: 1; left: 50%; top: 2.5%; transform: translateX(-50%); height: 24%; width: auto; filter: drop-shadow(0 6px 22px rgba(0, 0, 0, 0.65)); }
 .hero-inner {
   position: relative; z-index: 1; width: 100%; max-width: 760px; text-align: center;
   margin-top: -36px; padding-block: 0 8px;
