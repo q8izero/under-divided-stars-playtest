@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Under Divided Stars Playtest</title>
+<meta name="description" content="Thank you for playing Under Divided Stars! Tell us what you think: each part takes about a minute.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Under Divided Stars Playtest">
+<meta property="og:description" content="Thank you for playing! Tell us what you think: each part takes about a minute.">
+<meta property="og:url" content="https://q8izero.github.io/under-divided-stars-playtest/">
+<meta property="og:image" content="https://q8izero.github.io/under-divided-stars-playtest/assets/share_preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b1222">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=Cinzel:wght@600;700&family=Marcellus&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="hero-art" role="img" aria-label="Twinmarch at dusk, above the river gorge"></div>
+  <div class="hero-inner">
+    <img class="logo" src="assets/game-logo.png" alt="Under Divided Stars" width="560" height="515">
+    <p class="eyebrow">Playtest</p>
+    <h1>Thank you for playing!</h1>
+    <p class="lede">Tell us what you think at four moments of the game. Each part takes about a minute, and every answer helps us give the game its final touch.</p>
+  </div>
+</header>
+
+<main id="app">
+  <section id="home" class="view">
+    <div class="panel guest" id="guest-panel">
+      <label for="guest" class="panel-title">Your guest number</label>
+      <p class="help">The number you were given. No name needed. This device remembers it.</p>
+      <div class="guest-row">
+        <span class="guest-badge" aria-hidden="true">#</span>
+        <input id="guest" name="guest" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" placeholder="e.g. 3">
+      </div>
+      <p class="error" id="guest-error" hidden>Please type your guest number first.</p>
+    </div>
+
+    <h2 class="section-title"><span aria-hidden="true">✦</span> Where are you in the game? <span aria-hidden="true">✦</span></h2>
+    <p class="section-help">Tap the part you have just reached. You can come back for the next one, and send a part again if you like.</p>
+    <div class="parts" id="parts"></div>
+
+    <ol class="steps" aria-label="How it works">
+      <li><img src="assets/icons/destiny.png" alt="" width="40" height="40"><span><b>Play</b> the campaign, then 2 or 3 Roguelike runs.</span></li>
+      <li><img src="assets/icons/expedition.png" alt="" width="40" height="40"><span><b>Reach a part</b> and come back here at a calm moment, never in the middle of a battle or a scene.</span></li>
+      <li><img src="assets/icons/confirm.png" alt="" width="40" height="40"><span><b>Tap your answers</b>, write anything you like, and send.</span></li>
+    </ol>
+  </section>
+
+  <section id="part" class="view" hidden aria-live="polite"></section>
+
+  <section id="thanks" class="view" hidden>
+    <div class="panel thanks">
+      <div class="cheer" aria-hidden="true">🥳</div>
+      <h2>Thank you!</h2>
+      <p id="thanks-text">Your answers are sent.</p>
+      <p class="help">When you reach the next part, open this page again. Found a problem? Report it any time.</p>
+      <div class="actions">
+        <a class="button" href="#">Answer another part</a>
+        <a class="button ghost" href="#problem">Report a problem</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <img src="assets/studio-logo.png" alt="Adel Ben Asri Studio" width="420" height="280" class="studio">
+  <p>Your answers go only to the game's creator. We don't ask for your name or email: we keep your guest number, the part, your answers, the game version and whether you answered on a phone or a computer.</p>
+  <p class="small">Under Divided Stars · playtest build of 28 October 2026 · Windows</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
